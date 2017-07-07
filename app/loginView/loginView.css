@@ -1,0 +1,37 @@
+body{
+  background: white;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00589F', endColorstr='#0073CF', GradientType=0);
+  color: black;
+}
+.btncolor {
+    color: black;
+}
+div.well{
+  height: 250px;
+}
+
+.Absolute-Center {
+  margin: auto;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+}
+
+.Absolute-Center .is-Responsive {
+  width: 50%;
+  height: 50%;
+  min-width: 200px;
+  max-width: 400px;
+  padding: 40px;
+}
+
+.header {
+    color: #888888;
+}
+
+#logo-container{
+  margin: auto;
+  margin-bottom: 10px;
+  width:446px;
+  height:169px;
+  background-color: #292929;
+}
