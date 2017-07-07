@@ -1,4 +1,40 @@
-<div class="container">
+<div class="container dashboard-setup">
   <div class="col-md-2">Menu goes here</div>
-  <div class="col-md-10">Dashboard goes here</div>
+  <div class="col-md-10">
+    <div class="row">
+      <div class="col-md-2">10.23</div>
+      <div class="col-md-2">12.23</div>
+      <div class="col-md-2">14.23</div>
+    </div>
+    <div class="row">
+      <!--LEFT TORNADO -->
+      <div class="col-md-5">
+        <tornado-chart></tornado-chart>
+      </div>
+      <!--RIGHT TORNADO -->
+      <div class="col-md-5">
+        <tornado-chart></tornado-chart>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-5 project-list-container">
+        <div
+              ng-repeat="treeNode in treeNodes"
+              class="project-list-item panel"
+              ng-click="showTornadoInLeftPanelFor(treeNode)"
+        >
+          <img src="images/tornadoIcon.png"/>{{treeNode.name}}
+        </div>
+      </div>
+      <div class="col-md-5 project-list-container">
+        <div
+              ng-repeat="treeNode in treeNodes"
+              class="project-list-item panel"
+              ng-click="showTornadoInRightPanelFor(treeNode)"
+        >
+          <img src="images/tornadoIcon.png"/>{{treeNode.name}}
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

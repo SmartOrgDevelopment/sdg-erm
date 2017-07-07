@@ -13,6 +13,7 @@ config(['$locationProvider', '$routeProvider', function($locationProvider, $rout
   $routeProvider.otherwise({redirectTo: '/loginView'});
 }]).
 constant("config", {
-    "smartorg": new SmartOrg('https://sdg.smartorg.com', 'kirk')
+    "smartorg": new SmartOrg('https://sdg.smartorg.com', 'kirk'),
+    "portfolioName": "Product Launch Portfolio"
 
 });

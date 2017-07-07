@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Tornado Standalone</title>
+
+  <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css" />
+  <link rel="stylesheet" href="../node_modules/highcharts/css/highcharts.css" />
+
+  <link rel="stylesheet" href="css/app.css" />
+  <link rel="stylesheet" href="../../../../components/sticky-bar/app/css/app.css" />
+</head>
+<body>
+<div ng-app="smartorg.r6.standalone" ng-controller="standaloneCtrl">
+  <sticky-bar menu-box="menuBox"></sticky-bar>
+  <tornado-chart menu="menuBox.menu"></tornado-chart>
+</div>
+
+<script src="../node_modules/jquery/dist/jquery.js"></script>
+<script src="../node_modules/angular/angular.js"></script>
+<script src="../node_modules/bootstrap/dist/js/bootstrap.js"></script>
+<!-- Use highcharts/js/highcharts.js will result in weird output -->
+<script src="../node_modules/highcharts/highcharts.js"></script>
+<script src="../node_modules/accounting/accounting.js"></script>
+
+<script src="../../../../lib/canvg/canvg.js"></script>
+<script src="../../../../lib/canvg/rgbcolor.js"></script>
+<script src="../../../../lib/smartorg/chart-exporter.js"></script>
+<script src="../../../../lib/filesaver/FileSaver.js"></script>
+
+<script src="../../../../components/sticky-bar/app/js/plumbing/app.js"></script>
+<script src="../../../../components/sticky-bar/app/js/plumbing/sticky-bar-directive.js"></script>
+
+<script src="js/logic/tornado-data-preparer.js"></script>
+<script src="js/logic/tornado-chart-maker.js"></script>
+<script src="js/plumbing/app.js"></script>
+<script src="js/plumbing/tornado-directive.js"></script>
+
+<script src="js/standalone/standalone-data.js"></script>
+<script src="js/standalone/standalone-controller.js"></script>
+</body>
+</html>

@@ -1,0 +1,177 @@
+<h3 ng-show="actionMenuItem && nodeName">
+	{{actionMenuItem}} for {{nodeName}}
+</h3>
+
+<div ng-show="inputData.length > 1">
+  <div class="col-md-4"></div>
+  <div class="col-md-4" ng-show="inputData.length > 1">
+    <select
+        class="form-control pull-right input-small"
+        ng-model="selectedInputData"
+        ng-options="data.Display for data in inputData"
+        ng-change="selectNewData(selectedInputData)"
+    ></select>
+  </div>
+  <div class="col-md-4"></div>
+</div>
+
+<div class="tornadoChart" id="tornadoChartContainer"
+    style="display: inline-block"></div>
+
+<canvas ng-show="false" id="svg-canvas"></canvas>
+<br><br>
+
+<div ng-init="showTable=false" ng-if="showTable === true">
+  <div class="col-md-2"></div>
+  <div class="col-md-8">
+    <table
+        class="standardFont table table-striped table-condensed table-bordered">
+      <thead>
+      <tr>
+        <th>Factors</th>
+        <th>Low Input</th>
+        <th>Base Input</th>
+        <th>High Input</th>
+        <th>Low Output</th>
+        <th>Base Output</th>
+        <th>High Output</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr ng-repeat="item in displayTable track by $index">
+        <td>
+				<span ng-if="selectedShadowInputData !== null">
+					{{item.factor}} - {{nodeName}}<br>
+					{{item.factor}} - {{shadowNodeName}}
+				</span>
+				<span ng-if="selectedShadowInputData === null">
+					{{item.factor}}
+				</span>
+        </td>
+        <td align="right">
+				<span
+                    ng-if="selectedShadowInputData !== null && item.factor !== 'Combined Uncertainty Range'">
+					{{item.data[0]}}<br>
+					{{item.shadowData[0]}}
+				</span>
+				<span
+                    ng-if="selectedShadowInputData === null && item.factor !== 'Combined Uncertainty Range'">
+					{{item.data[0]}}
+				</span>
+				<span
+                    ng-if="selectedShadowInputData !== null && item.factor === 'Combined Uncertainty Range'">
+					Low<br>
+					Low
+				</span>
+				<span
+                    ng-if="selectedShadowInputData === null && item.factor === 'Combined Uncertainty Range'">
+					Low
+				</span>
+        </td>
+        <td align="right">
+				<span
+                    ng-if="selectedShadowInputData !== null && item.factor !== 'Combined Uncertainty Range'">
+					{{item.data[1]}}<br>
+					{{item.shadowData[1]}}
+				</span>
+				<span
+                    ng-if="selectedShadowInputData === null && item.factor !== 'Combined Uncertainty Range'">
+					{{item.data[1]}}
+				</span>
+				<span
+                    ng-if="selectedShadowInputData !== null && item.factor === 'Combined Uncertainty Range'">
+					Base<br>
+					Base
+				</span>
+				<span
+                    ng-if="selectedShadowInputData === null && item.factor === 'Combined Uncertainty Range'">
+					Base
+				</span>
+        </td>
+        <td align="right">
+				<span
+                    ng-if="selectedShadowInputData !== null && item.factor !== 'Combined Uncertainty Range'">
+					{{item.data[2]}}<br>
+					{{item.shadowData[2]}}
+				</span>
+				<span
+                    ng-if="selectedShadowInputData === null && item.factor !== 'Combined Uncertainty Range'">
+					{{item.data[2]}}
+				</span>
+				<span
+                    ng-if="selectedShadowInputData !== null && item.factor === 'Combined Uncertainty Range'">
+					High<br>
+					High
+				</span>
+				<span
+                    ng-if="selectedShadowInputData === null && item.factor === 'Combined Uncertainty Range'">
+					High
+				</span>
+        </td>
+        <td align="right">
+				<span
+                    ng-if="selectedShadowInputData !== null && item.factor !== 'Combined Uncertainty Range'">
+					{{item.data[3]}}<br>
+					{{item.shadowData[3]}}
+				</span>
+				<span
+                    ng-if="selectedShadowInputData === null && item.factor !== 'Combined Uncertainty Range'">
+					{{item.data[3]}}
+				</span>
+				<span
+                    ng-if="selectedShadowInputData !== null && item.factor === 'Combined Uncertainty Range'">
+					{{item.data[0]}}<br>
+					{{item.shadowData[0]}}
+				</span>
+				<span
+                    ng-if="selectedShadowInputData === null && item.factor === 'Combined Uncertainty Range'">
+					{{item.data[0]}}
+				</span>
+        </td>
+        <td align="right">
+				<span
+                    ng-if="selectedShadowInputData !== null && item.factor !== 'Combined Uncertainty Range'">
+					{{item.data[4]}}<br>
+					{{item.shadowData[4]}}
+				</span>
+				<span
+                    ng-if="selectedShadowInputData === null && item.factor !== 'Combined Uncertainty Range'">
+					{{item.data[4]}}
+				</span>
+				<span
+                    ng-if="selectedShadowInputData !== null && item.factor === 'Combined Uncertainty Range'">
+					{{item.data[1]}}<br>
+					{{item.shadowData[1]}}
+				</span>
+				<span
+                    ng-if="selectedShadowInputData === null && item.factor === 'Combined Uncertainty Range'">
+					{{item.data[1]}}
+				</span>
+        </td>
+        <td align="right">
+				<span
+                    ng-if="selectedShadowInputData !== null && item.factor !== 'Combined Uncertainty Range'">
+					{{item.data[5]}}<br>
+					{{item.shadowData[5]}}
+				</span>
+				<span
+                    ng-if="selectedShadowInputData === null && item.factor !== 'Combined Uncertainty Range'">
+					{{item.data[5]}}
+				</span>
+				<span
+                    ng-if="selectedShadowInputData !== null && item.factor === 'Combined Uncertainty Range'">
+					{{item.data[2]}}<br>
+					{{item.shadowData[2]}}
+				</span>
+				<span
+                    ng-if="selectedShadowInputData === null && item.factor === 'Combined Uncertainty Range'">
+					{{item.data[2]}}
+				</span>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="col-md-2"></div>
+  <div class="col-md-12"><br><br></div>
+</div>

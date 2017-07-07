@@ -1,0 +1,16 @@
+.project-list-container {
+    display: flex;
+    flex-direction: row;
+    overflow: auto;
+}
+
+.project-list-item {
+    min-width: 100px;
+    width: 100px;
+    margin-right: 10px;
+}
+
+.dashboard-setup {
+    margin: 0;
+    width: 100%;
+}

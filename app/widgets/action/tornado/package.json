@@ -1,0 +1,24 @@
+{
+  "name": "smartorg.r6.acts.tornado",
+  "private": true,
+  "version": "0.5.0",
+  "description": "Smartorg tornado chart.",
+  "license": "SEE LICENSE IN LICENSE.txt (which is not exist (which means private for now)).",
+  "dependencies": {
+    "accounting": "^0.4.1",
+    "angular": "^1.6.3",
+    "bootstrap": "^3.3.7",
+    "highcharts": "^5.0.9",
+    "jquery": "^3.2.1"
+  },
+  "scripts": {
+    "build": "npm run createDist && npm run buildTemplate && npm run replace && npm run buildJS && npm run minifyJS && npm run buildCSS && npm run cleanup",
+    "createDist": "rm -rf dist && mkdir dist",
+    "buildTemplate": "ng-html2js app/template/tornado.html -m smartorg.r6.acts.tornado dist/tornado-temp.js",
+    "replace": "replace 'app/template' '/Chomolongma/app/widgets/action/tornado/app/template' dist/*-temp.js",
+    "buildJS": "uglifyjs app/js/logic/*.js app/js/plumbing/*.js dist/*-temp.js --screw-ie8 -b -o dist/bundle.js",
+    "minifyJS": "ng-annotate -a dist/bundle.js > dist/bundle.min.js",
+    "buildCSS": "cleancss --output dist/bundle.css app/css/*.css",
+    "cleanup": "rm -f dist/*-temp.js"
+  }
+}
